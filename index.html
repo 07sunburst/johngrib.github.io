@@ -1,38 +1,40 @@
----
-layout: default
-title: Home
----
+<html>
+    <head>
+        <style>
+            html, body { height:100%; background-color: #FFFFFF;}
+            #results li.pass { font-size: 80px; color: green; }
+            #btn {font-size: 40px; width: 250px; height: 100px;}
+        </style>
+    </head>
+    <body>
+        <button id="btn">·£´ý</button>
+        <ul id="results"></ul>
+        <script>
+            var assert = function(desc) {
+                var li = document.createElement("li");
+                li.className = "pass";
+                li.appendChild(document.createTextNode(desc));
+                document.getElementById("results").appendChild(li);
+            };
 
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </h1>
+            var menu = ['ºÀÅÂ¹Î', '¼Ò´ã', '´Ù¿ø', 'µÅÁö±¹¹ä', '»õ¸¶À» ½Ä´ç', 'ÀÜÄ¡Áý', '¾çÁö°õÅÁ(¿·°Ç¹°)'];
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
-
-    {{ post.content }}
-  </div>
-  {% endfor %}
-</div>
-
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="/page{{paginator.next_page}}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="/">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="/page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
-</div>
-
+            document.getElementById('btn').addEventListener("click", function() {
+                var txt = menu[Math.floor((Math.random() * menu.length))];
+                txt = (menu[0] === txt) ?
+                        function() {
+                            var week = ['ÀÏ : '
+                                        , '¿ù : ½¡ºÒ Á¦À°±¸ÀÌ'
+                                        , 'È­ : ¿ÀÂ¡¾î¶±ººÀ½, °è¶õ¸»ÀÌ'
+                                        , '¼ö : ¼®¼è ºÒ°í±â'
+                                        , '¸ñ : ¸Å¿îµÅÁö°¥ºñÂò, °è¶õ¸»ÀÌ'
+                                        , '±Ý : ½¡ºÒ ´ß°¥ºñ'
+                                        , 'Åä : '
+                            ];
+                            return txt + ' ' + week[new Date().getDay()];
+                        }() : txt;
+                assert(txt);
+            }, false);
+        </script>
+    </body>
+</html>
