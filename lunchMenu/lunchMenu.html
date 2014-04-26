@@ -1,5 +1,5 @@
 <html>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <head>
         <style>
             html, body { height:100%; background-color: #FFFFFF;}
@@ -8,7 +8,7 @@
         </style>
     </head>
     <body>
-        <button id="btn">·£´ı</button>
+        <button id="btn">ëœë¤</button>
         <ul id="results"></ul>
         <script>
             var assert = function(desc) {
@@ -18,19 +18,19 @@
                 document.getElementById("results").appendChild(li);
             };
 
-            var menu = ['ºÀÅÂ¹Î', '¼Ò´ã', '´Ù¿ø', 'µÅÁö±¹¹ä', '»õ¸¶À» ½Ä´ç', 'ÀÜÄ¡Áı', '¾çÁö°õÅÁ(¿·°Ç¹°)'];
+            var menu = ['ë´‰íƒœë¯¼', 'ì†Œë‹´', 'ë‹¤ì›', 'ë¼ì§€êµ­ë°¥', 'ìƒˆë§ˆì„ ì‹ë‹¹', 'ì”ì¹˜ì§‘', 'ì–‘ì§€ê³°íƒ•(ì˜†ê±´ë¬¼)'];
 
             document.getElementById('btn').addEventListener("click", function() {
                 var txt = menu[Math.floor((Math.random() * menu.length))];
                 txt = (menu[0] === txt) ?
                         function() {
-                            var week = ['ÀÏ : '
-                                        , '¿ù : ½¡ºÒ Á¦À°±¸ÀÌ'
-                                        , 'È­ : ¿ÀÂ¡¾î¶±ººÀ½, °è¶õ¸»ÀÌ'
-                                        , '¼ö : ¼®¼è ºÒ°í±â'
-                                        , '¸ñ : ¸Å¿îµÅÁö°¥ºñÂò, °è¶õ¸»ÀÌ'
-                                        , '±İ : ½¡ºÒ ´ß°¥ºñ'
-                                        , 'Åä : '
+                            var week = ['ì¼ : '
+                                        , 'ì›” : ìˆ¯ë¶ˆ ì œìœ¡êµ¬ì´'
+                                        , 'í™” : ì˜¤ì§•ì–´ë–¡ë³¶ìŒ, ê³„ë€ë§ì´'
+                                        , 'ìˆ˜ : ì„ì‡  ë¶ˆê³ ê¸°'
+                                        , 'ëª© : ë§¤ìš´ë¼ì§€ê°ˆë¹„ì°œ, ê³„ë€ë§ì´'
+                                        , 'ê¸ˆ : ìˆ¯ë¶ˆ ë‹­ê°ˆë¹„'
+                                        , 'í†  : '
                             ];
                             return txt + ' ' + week[new Date().getDay()];
                         }() : txt;
