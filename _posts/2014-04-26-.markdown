@@ -1,6 +1,6 @@
 ---
-published: true
-title: 테스트
+published: false
+title: Test
 layout: post
 ---
-테스트 포스트
+testing
