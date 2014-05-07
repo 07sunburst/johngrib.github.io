@@ -1,41 +1,55 @@
-<html>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <head>
-        <style>
-            html, body { height:100%; background-color: #FFFFFF;}
-            #results li.pass { font-size: 80px; color: green; }
-            #btn {font-size: 40px; width: 250px; height: 100px;}
-        </style>
-    </head>
-    <body>
-        <button id="btn">랜덤</button>
-        <ul id="results"></ul>
-        <script>
-            var assert = function(desc) {
-                var li = document.createElement("li");
-                li.className = "pass";
-                li.appendChild(document.createTextNode(desc));
-                document.getElementById("results").appendChild(li);
-            };
-
-            var menu = ['봉태민', '소담', '다원', '돼지국밥', '새마을 식당', '잔치집', '양지곰탕(옆건물)'];
-
-            document.getElementById('btn').addEventListener("click", function() {
-                var txt = menu[Math.floor((Math.random() * menu.length))];
-                txt = (menu[0] === txt) ?
-                        function() {
-                            var week = ['일 : '
-                                        , '월 : 숯불 제육구이'
-                                        , '화 : 오징어떡볶음, 계란말이'
-                                        , '수 : 석쇠 불고기'
-                                        , '목 : 매운돼지갈비찜, 계란말이'
-                                        , '금 : 숯불 닭갈비'
-                                        , '토 : '
-                            ];
-                            return txt + ' ' + week[new Date().getDay()];
-                        }() : txt;
-                assert(txt);
-            }, false);
-        </script>
-    </body>
-</html>
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+ 
+.chart rect {
+  fill: steelblue;
+}
+ 
+.chart text {
+  fill: white;
+  font: 10px sans-serif;
+  text-anchor: end;
+}
+ 
+</style>
+<svg class="chart"></svg>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+ 
+var width = 420,
+    barHeight = 20;
+ 
+var x = d3.scale.linear()
+    .range([0, width]);
+ 
+var chart = d3.select(".chart")
+    .attr("width", width);
+ 
+d3.tsv("data.tsv", type, function(error, data) {
+  x.domain([0, d3.max(data, function(d) { return d.value; })]);
+ 
+  chart.attr("height", barHeight * data.length);
+ 
+  var bar = chart.selectAll("g")
+      .data(data)
+    .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
+ 
+  bar.append("rect")
+      .attr("width", function(d) { return x(d.value); })
+      .attr("height", barHeight - 1);
+ 
+  bar.append("text")
+      .attr("x", function(d) { return x(d.value) - 3; })
+      .attr("y", barHeight / 2)
+      .attr("dy", ".35em")
+      .text(function(d) { return d.value; });
+});
+ 
+function type(d) {
+  d.value = +d.value; // coerce to number
+  return d;
+}
+ 
+</script>
