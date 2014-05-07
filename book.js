@@ -1,26 +1,3 @@
-/*
-// Try to finish OAuth authorization.
-client.authenticate({
-    interactive: false
-}, function(error) {
-    if (error) {
-        alert('Authentication error: ' + error);
-    }
-});
-
-$('#loginButton').click(function(e) {
-    e.preventDefault();
-    client.authenticate();
-});
-
-if (client.isAuthenticated()) {
-    alert("connected");
-}
-
-alert('success');
-*/
-
-// Insert your Dropbox app key here:
 var DROPBOX_APP_KEY = 'dbbt2f75xhg81ek'; 
 
 // Exposed for easy access in the browser console.
@@ -31,7 +8,7 @@ $(function () {
 	// Insert a new task record into the table.
 	function insertTask(text) {
 		taskTable.insert({
-			taskname: text,
+			bookname: text,
 			created: new Date(),
 			completed: false
 		});
@@ -56,7 +33,7 @@ $(function () {
 			$('#tasks').append(
 				renderTask(record.getId(),
 					record.get('completed'),
-					record.get('taskname')));
+					record.get('bookname')));
 		}
 
 		addListeners();
