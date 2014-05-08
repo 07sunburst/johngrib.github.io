@@ -131,11 +131,11 @@ $(function() {
 	var userAgent = navigator.userAgent.toLowerCase();
 	if(userAgent.match('iphone')) {
 		alert('iphone');
-		document.write('<link rel="apple-touch-icon" href="apple-touch-icon.png" />') 
+		document.write('<link rel="apple-touch-icon" href="todo.png" />') 
 	} else if(userAgent.match('ipad')) {
-		document.write('<link rel="apple-touch-icon" sizes="72*72" href="apple-touch-icon-ipad.png" />')
+		document.write('<link rel="apple-touch-icon" sizes="72*72" href="todo.png" />')
 	} else if(userAgent.match('ipod')) {
-		document.write('<link rel="apple-touch-icon" href="apple-touch-icon.png" />') 
+		document.write('<link rel="apple-touch-icon" href="todo.png" />') 
 	} else if(userAgent.match('android')) {
 		document.write('<link rel="shortcut icon" href="favicon.ico" />') 
 	} else {
