@@ -128,7 +128,7 @@ $(function() {
 });
 
 (function(){
-	var ip = /^iphone$|^ipad$/i;
+	var ip = /.*(iphone|ipad).*/i;
 	var userAgent = navigator.userAgent.toLowerCase();
 	if(ip.test(userAgent)){
 		alert('iiiipppphone!');	
