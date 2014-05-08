@@ -33,11 +33,12 @@ button.checkbox {
 	-ms-border-radius: 0;
 }
 
-/*
+
 button:hover { background-color: #e0e0e0; }
 button.checkbox:hover { background-color: #eee; }
 li.completed button.checkbox { color: #3d3d3d; }
 li:hover button.checkbox { color: #bbb; }
+/*
 li.completed span:hover button.checkbox { color: #3d3d3d; }
 button.delete { border: none; outline: none; background-color: transparent; color: #bbb; font-size: 18px; }
 button.delete:hover { color: #3d3d3d; }
