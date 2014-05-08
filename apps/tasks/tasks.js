@@ -128,19 +128,12 @@ $(function() {
 });
 
 (function(){
-	var ip = /.*(iphone|ipad).*/i;
-	var userAgent = navigator.userAgent.toLowerCase();
-	if(ip.test(userAgent)){
-		alert('iiiipppphone!');	
-	} else if(userAgent.match('iphone')) {
-		alert('::'+userAgent+'::');
-		document.write('<link rel="apple-touch-icon" href="todo.png" />') 
-	} else if(userAgent.match('ipad')) {
-		document.write('<link rel="apple-touch-icon" sizes="72*72" href="todo.png" />')
-	} else if(userAgent.match('ipod')) {
-		document.write('<link rel="apple-touch-icon" href="todo.png" />') 
-	} else if(userAgent.match('android')) {
-		document.write('<link rel="shortcut icon" href="favicon.ico" />') 
+	var ip = /.*(iphone|ipad|ipod).*/i;
+	//var userAgent = navigator.userAgent.toLowerCase();
+	if(ip.test(navigator.userAgent)){
+		document.write('<link rel="apple-touch-icon" href="todo.png" />');
+		//document.write('<link rel="apple-touch-icon" sizes="72*72" href="todo.png" />')
+	//} else if(userAgent.match('android')) {
 	} else {
 		document.write('<link rel="shortcut icon" href="favicon.ico" />') 
 	}
