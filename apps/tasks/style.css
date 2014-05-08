@@ -7,7 +7,7 @@ li.completed span { text-decoration: line-through; color: steelblue;}
 
 button {
 	margin: 0px 10px;
-	background-color: steelblue;
+	background-color: yellow;
 	border: 1px solid #ccc;
 	font-size: 40px;
 	line-height: 24px;
@@ -22,7 +22,6 @@ button {
 
 
 button.checkbox {
-	background-color: yellow;
 	border: none;
 	font-size: 18px;
 	color: transparent;
