@@ -1,4 +1,4 @@
-html, body { width: 100%; font-weight: bold;}
+html, body { font-weight: bold;}
 
 ul { list-style: none; margin: 0; padding: 0; }
 li { padding: 1px 0; cursor: pointer; }
