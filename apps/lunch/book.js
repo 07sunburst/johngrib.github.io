@@ -1,6 +1,7 @@
 var client = new Dropbox.Client({
 	key : 'dbbt2f75xhg81ek'
 });
+
 var taskTable;
 
 $(function() {
