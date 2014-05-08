@@ -3,7 +3,7 @@ html, body { width: 100%;}
 ul { list-style: none; margin: 0; padding: 0; }
 li { padding: 1px 0; cursor: pointer; }
 li span.text { display: inline-block; vertical-align: left; }
-li.completed span { text-decoration: line-through; color: #bbb; }
+li.completed span { text-decoration: line-through; color: grey; }
 /*
 button {
 	margin: 0px 10px;
