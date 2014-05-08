@@ -9,13 +9,13 @@ button {
 	background-color: steelblue;
 	font-size: 20px;
 	color: white;
-	
+	/*
 	border-radius: 4px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	-ms-border-radius: 4px;
-	
 	cursor: pointer;
+	*/
 }
 
 
