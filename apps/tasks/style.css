@@ -6,19 +6,19 @@ li span.text { display: inline-block; vertical-align: left; }
 li.completed span { text-decoration: line-through; color: steelblue;}
 
 button {
-	margin: 0px 10px;
+	/*margin: 0px 10px;*/
 	background-color: steelblue;
 	border: 1px solid;
 	font-size: 40px;
 	line-height: 24px;
 	padding: 10px 10px;
 	color: white;
-	/*
+	
 	border-radius: 8px;
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	-ms-border-radius: 8px;
-	*/
+	
 	cursor: pointer;
 }
 
