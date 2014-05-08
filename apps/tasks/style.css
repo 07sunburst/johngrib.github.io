@@ -1,4 +1,4 @@
-html, body { font-size: 24px; color: steelblue; height: 100%;}
+html, body { font-size: 3em /*24px*/; color: steelblue; height: 100%;}
 ul { list-style: none; margin: 0; padding: 0; }
 li { padding: 10px 0; cursor: pointer; }
 li span.text { display: inline-block; vertical-align: middle; }
