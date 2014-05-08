@@ -7,9 +7,7 @@ li.completed span { text-decoration: line-through; color: steelblue;}
 
 button {
 	background-color: steelblue;
-	width: 20px;
-	height: 20px;
-	font-size: 10px;
+	/*font-size: 10px;*/
 	color: white;
 	/*
 	border-radius: 4px;
@@ -27,10 +25,12 @@ button.checkbox {
 	color: transparent;
 	background-color: #eee;
 	padding: 10px 10px;
+	/*
 	border-radius: 0;
 	-webkit-border-radius: 0;
 	-moz-border-radius: 0;
 	-ms-border-radius: 0;
+	*/
 }
 
 
