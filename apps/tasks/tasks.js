@@ -128,8 +128,11 @@ $(function() {
 });
 
 (function(){
+	var ip = /^iphone$|^ipad$/i;
 	var userAgent = navigator.userAgent.toLowerCase();
-	if(userAgent.match('iphone')) {
+	if(ip.test(userAgent)){
+		alert('iiiipppphone!');	
+	} else if(userAgent.match('iphone')) {
 		document.write('<link rel="apple-touch-icon" href="todo.png" />') 
 	} else if(userAgent.match('ipad')) {
 		document.write('<link rel="apple-touch-icon" sizes="72*72" href="todo.png" />')
