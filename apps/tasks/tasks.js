@@ -133,6 +133,7 @@ $(function() {
 	if(ip.test(userAgent)){
 		alert('iiiipppphone!');	
 	} else if(userAgent.match('iphone')) {
+		alert('아이폰');
 		document.write('<link rel="apple-touch-icon" href="todo.png" />') 
 	} else if(userAgent.match('ipad')) {
 		document.write('<link rel="apple-touch-icon" sizes="72*72" href="todo.png" />')
