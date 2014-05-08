@@ -8,7 +8,7 @@ $(function() {
 	// Insert a new task record into the table.
 	function insertTask(text) {
 		taskTable.insert({
-			bookname : text,
+			taskname : text,
 			created : new Date(),
 			completed : false
 		});
@@ -34,7 +34,7 @@ $(function() {
 			var record = records[i];
 			$('#tasks').append(
 					renderTask(record.getId(), record.get('completed'), record
-							.get('bookname')));
+							.get('taskname')));
 		}
 
 		addListeners();
