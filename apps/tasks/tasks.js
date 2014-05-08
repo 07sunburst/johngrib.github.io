@@ -6,7 +6,7 @@ var taskTable;
 
 $(function() {
 	// Insert a new task record into the table.
-	function insertTask(text) {
+	function insertTask(text) { //
 		taskTable.insert({
 			taskname : text,
 			created : new Date(),
