@@ -22,6 +22,7 @@ button {
 
 
 button.checkbox {
+	background-color: grey;
 	border: none;
 	font-size: 18px;
 	color: transparent;
