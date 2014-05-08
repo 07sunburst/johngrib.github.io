@@ -1,16 +1,15 @@
-var DROPBOX_APP_KEY = 'dbbt2f75xhg81ek'; 
-
-// Exposed for easy access in the browser console.
-var client = new Dropbox.Client({key: DROPBOX_APP_KEY});
+var client = new Dropbox.Client({
+	key : 'dbbt2f75xhg81ek'
+});
 var taskTable;
 
-$(function () {
+$(function() {
 	// Insert a new task record into the table.
 	function insertTask(text) {
 		taskTable.insert({
-			bookname: text,
-			created: new Date(),
-			completed: false
+			bookname : text,
+			created : new Date(),
+			completed : false
 		});
 	}
 
@@ -21,19 +20,20 @@ $(function () {
 		var records = taskTable.query();
 
 		// Sort by creation time.
-		records.sort(function (taskA, taskB) {
-			if (taskA.get('created') < taskB.get('created')) return -1;
-			if (taskA.get('created') > taskB.get('created')) return 1;
+		records.sort(function(taskA, taskB) {
+			if (taskA.get('created') < taskB.get('created'))
+				return -1;
+			if (taskA.get('created') > taskB.get('created'))
+				return 1;
 			return 0;
 		});
 
 		// Add an item to the list for each task.
-		for (var i = 0; i < records.length; i++) {
+		for ( var i = 0; i < records.length; i++) {
 			var record = records[i];
 			$('#tasks').append(
-				renderTask(record.getId(),
-					record.get('completed'),
-					record.get('bookname')));
+					renderTask(record.getId(), record.get('completed'), record
+							.get('bookname')));
 		}
 
 		addListeners();
@@ -41,14 +41,16 @@ $(function () {
 	}
 
 	// The login button will start the authentication process.
-	$('#loginButton').click(function (e) {
+	$('#loginButton').click(function(e) {
 		e.preventDefault();
 		// This will redirect the browser to OAuth login.
 		client.authenticate();
 	});
 
 	// Try to finish OAuth authorization.
-	client.authenticate({interactive:false}, function (error) {
+	client.authenticate({
+		interactive : false
+	}, function(error) {
 		if (error) {
 			alert('Authentication error: ' + error);
 		}
@@ -59,19 +61,20 @@ $(function () {
 		$('#loginButton').hide();
 		$('#main').show();
 
-		client.getDatastoreManager().openDefaultDatastore(function (error, datastore) {
-			if (error) {
-				alert('Error opening default datastore: ' + error);
-			}
+		client.getDatastoreManager().openDefaultDatastore(
+				function(error, datastore) {
+					if (error) {
+						alert('Error opening default datastore: ' + error);
+					}
 
-			taskTable = datastore.getTable('tasks');
+					taskTable = datastore.getTable('tasks');
 
-			// Populate the initial task list.
-			updateList();
+					// Populate the initial task list.
+					updateList();
 
-			// Ensure that future changes update the list.
-			datastore.recordsChanged.addListener(updateList);
-		});
+					// Ensure that future changes update the list.
+					datastore.recordsChanged.addListener(updateList);
+				});
 	}
 
 	// Set the completed status of a task with the given ID.
@@ -87,27 +90,23 @@ $(function () {
 	// Render the HTML for a single task.
 	function renderTask(id, completed, text) {
 		return $('<li>').attr('id', id).append(
-				$('<button>').addClass('delete').html('&times;')
-			).append(
+				$('<button>').addClass('delete').html('&times;')).append(
 				$('<span>').append(
-					$('<button>').addClass('checkbox').html('&#x2713;')
-				).append(
-					$('<span>').addClass('text').text(text)
-				)
-			)
-			.addClass(completed ? 'completed' : '');
+						$('<button>').addClass('checkbox').html('&#x2713;'))
+						.append($('<span>').addClass('text').text(text)))
+				.addClass(completed ? 'completed' : '');
 	}
 
 	// Register event listeners to handle completing and deleting.
 	function addListeners() {
-		$('span').click(function (e) {
+		$('span').click(function(e) {
 			e.preventDefault();
 			var li = $(this).parents('li');
 			var id = li.attr('id');
 			setCompleted(id, !li.hasClass('completed'));
 		});
 
-		$('button.delete').click(function (e) {
+		$('button.delete').click(function(e) {
 			e.preventDefault();
 			var id = $(this).parents('li').attr('id');
 			deleteRecord(id);
@@ -115,7 +114,7 @@ $(function () {
 	}
 
 	// Hook form submit and add the new task.
-	$('#addForm').submit(function (e) {
+	$('#addForm').submit(function(e) {
 		e.preventDefault();
 		if ($('#newTask').val().length > 0) {
 			insertTask($('#newTask').val());
