@@ -1,4 +1,4 @@
-html, body { font-size: 24px; font-family: Arial; color: #666; }
+html, body { font-size: 24px; font-family: 맑은고딕; color: #666; }
 ul { list-style: none; margin: 0; padding: 0; }
 li { padding: 10px 0; cursor: pointer; }
 li span.text { display: inline-block; vertical-align: middle; }
